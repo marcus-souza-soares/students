@@ -11,11 +11,21 @@ app.get("/students", async (req: Request, res: Response) => {
   res.send(students);
 });
 
+app.get("/students/:id", async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const student = await prisma.student.findUnique({
+    where: {
+      id: parseInt(id),
+    },
+  });
+  res.send(student);
+});
+
 app.post("/students", async (req: Request, res: Response) => {
   const { students } = req.body;
   await prisma.student.createMany({
     data: students,
-    skipDuplicates: true
+    skipDuplicates: true,
   });
 
   res.sendStatus(201); // created
