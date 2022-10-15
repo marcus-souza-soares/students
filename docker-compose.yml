@@ -38,7 +38,7 @@ services:
      - build_react:/var/www/html
     depends_on:
       - sorteador_db
-      - sorteador_ap
+      - sorteador_api
       - react_build
 
 volumes:
