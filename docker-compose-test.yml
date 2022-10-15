@@ -1,0 +1,19 @@
+services:
+  sorteador_db_test:
+    image: postgres
+    container_name: sorteador_db_test
+    restart: always
+    ports:
+      - 1234:5432
+    env_file:
+      - ./back-end/.env.test
+
+  sorteador_api_test:
+    container_name: sorteador_api_test
+    build: ./back-end
+    ports:
+      - 5000:5000
+    depends_on:
+      - sorteador_db_test
+    env_file:
+      - ./back-end/.env.test
