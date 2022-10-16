@@ -2,11 +2,6 @@ import express, { json, Request, Response } from "express";
 import cors from "cors";
 import prisma from "./database.js";
 
-//comentario 1
-//comentando mais algo
-//comentando de novo
-//comentando ooutra vez
-
 const app = express();
 app.use(cors());
 app.use(json());
