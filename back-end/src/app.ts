@@ -3,6 +3,7 @@ import cors from "cors";
 import prisma from "./database.js";
 
 //comentario 1
+//comentando mais algo
 
 const app = express();
 app.use(cors());
